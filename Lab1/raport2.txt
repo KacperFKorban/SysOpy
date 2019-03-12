@@ -1,0 +1,31 @@
+Allocated memory for 10 blocks
+real        user        system  
+0.000000    0.000000    0.000000
+
+Allocated memory for 1000 blocks
+real        user        system  
+0.000000    0.000000    0.000000
+
+Allocated memory for 1000000 blocks
+real        user        system  
+0.000000    0.000000    0.000000
+
+Executed find /usr/lib . > tmp 2> /dev/null
+And copied to memory at index 0
+real        user        system  
+0.080000    0.000000    0.070000
+
+Executed find /usr . > tmp 2> /dev/null
+And copied to memory at index 0
+real        user        system  
+0.480000    0.110000    0.320000
+
+Executed find / . > tmp 2> /dev/null
+And copied to memory at index 0
+real        user        system  
+3.520000    0.850000    2.390000
+
+Executed find /usr . > tmp 2> /dev/null (4 times) and
+Removed block (4 times)
+real        user        system  
+2.400000    0.590000    1.680000
