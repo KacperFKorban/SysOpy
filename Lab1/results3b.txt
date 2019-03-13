@@ -19,7 +19,6 @@ And copied to memory at index 0
 real        user        system  
 1.090000    0.120000    0.360000
 
-
 Executed find /usr . > tmp 2> /dev/null
 And copied to memory at index 0
 real        user        system  
@@ -106,3 +105,5 @@ Executed find /usr . > tmp 2> /dev/null (4 times) and
 Removed block (4 times)
 real        user        system  
 2.630000    0.720000    1.680000
+
+W prypadku powyzszych testow flaga -Os okazala sie najszybsza, a -O0 najwolniajsza.

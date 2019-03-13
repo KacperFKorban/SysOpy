@@ -105,3 +105,5 @@ Executed find /usr . > tmp 2> /dev/null (4 times) and
 Removed block (4 times)
 real        user        system  
 2.480000    0.680000    1.660000
+
+W prypadku powyzszych testow biblioteka dynamiczna okazala sie najszybsza, a statyczna najwolniajsza.
