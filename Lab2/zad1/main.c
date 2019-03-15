@@ -211,5 +211,14 @@ int main(int argc, char* argv[]) {
     free(gstart);
     free(gend);
     
+    /*
+        Analizujac czasy wykonania programu i poszczegolnych procesow,
+        szczegolnie sortowania (ktore mialo najwieksza zlozonosz obliczeniawa
+        i czasowa), mozna zauwazyc ze dla malych wielkosci rekordow szybszy jest
+        algorytm uzywajacy biblioteczne funkcje do dzialania na plikach, natomiast
+        im wieksze rozmiary rekordow, tym proporcjonalnie do drugiego rozwiazania,
+        szybszy staje sie algorytm korzystajacy z funkcji systemowych.
+    */
+
     return 0;
 }
