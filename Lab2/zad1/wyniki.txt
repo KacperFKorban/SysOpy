@@ -1,0 +1,450 @@
+Generated 1000 lines, 1 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 1 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 1 chars each
+Global:
+real		user		system	
+0.340000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 1 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 1 chars each
+Global:
+real		user		system	
+0.140000	0.000000	0.000000
+
+Generated 10000 lines, 1 chars each
+Global:
+real		user		system	
+0.020000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 1 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 1 chars each
+Global:
+real		user		system	
+32.370000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 1 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 1 chars each
+Global:
+real		user		system	
+13.700000	0.000000	0.000000
+
+Generated 1000 lines, 4 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 4 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 4 chars each
+Global:
+real		user		system	
+0.340000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 4 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 4 chars each
+Global:
+real		user		system	
+0.160000	0.000000	0.000000
+
+Generated 10000 lines, 4 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 4 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 4 chars each
+Global:
+real		user		system	
+32.650000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 4 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 4 chars each
+Global:
+real		user		system	
+13.740000	0.000000	0.000000
+
+Generated 1000 lines, 512 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 512 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 512 chars each
+Global:
+real		user		system	
+0.360000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 512 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 512 chars each
+Global:
+real		user		system	
+0.190000	0.000000	0.000000
+
+Generated 10000 lines, 512 chars each
+Global:
+real		user		system	
+0.070000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 512 chars each
+Global:
+real		user		system	
+0.020000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 512 chars each
+Global:
+real		user		system	
+36.060000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 512 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 512 chars each
+Global:
+real		user		system	
+19.070000	0.000000	0.000000
+
+Generated 1000 lines, 1024 chars each
+Global:
+real		user		system	
+0.020000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 1024 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 1024 chars each
+Global:
+real		user		system	
+0.380000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 1024 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 1024 chars each
+Global:
+real		user		system	
+0.230000	0.000000	0.000000
+
+Generated 10000 lines, 1024 chars each
+Global:
+real		user		system	
+0.130000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 1024 chars each
+Global:
+real		user		system	
+0.020000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 1024 chars each
+Global:
+real		user		system	
+38.600000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 1024 chars each
+Global:
+real		user		system	
+0.030000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 1024 chars each
+Global:
+real		user		system	
+25.090000	0.000000	0.000000
+
+Generated 1000 lines, 4096 chars each
+Global:
+real		user		system	
+0.040000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 4096 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 4096 chars each
+Global:
+real		user		system	
+0.500000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 4096 chars each
+Global:
+real		user		system	
+0.010000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 4096 chars each
+Global:
+real		user		system	
+0.500000	0.000000	0.000000
+
+Generated 10000 lines, 4096 chars each
+Global:
+real		user		system	
+0.500000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 4096 chars each
+Global:
+real		user		system	
+0.040000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 4096 chars each
+Global:
+real		user		system	
+59.590000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 4096 chars each
+Global:
+real		user		system	
+0.110000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 4096 chars each
+Global:
+real		user		system	
+59.690000	0.000000	0.000000
+
+Generated 1000 lines, 8192 chars each
+Global:
+real		user		system	
+0.100000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 1000 lines, 8192 chars each
+Global:
+real		user		system	
+0.000000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 1000 lines, 8192 chars each
+Global:
+real		user		system	
+0.710000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 1000 lines, 8192 chars each
+Global:
+real		user		system	
+0.020000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 1000 lines, 8192 chars each
+Global:
+real		user		system	
+0.900000	0.000000	0.000000
+
+Generated 10000 lines, 8192 chars each
+Global:
+real		user		system	
+1.010000	0.000000	0.000000
+
+####################
+	sys
+####################
+Copied file with 10000 lines, 8192 chars each
+Global:
+real		user		system	
+0.050000	0.000000	0.000000
+
+####################
+	sys
+####################
+Sorted file with 10000 lines, 8192 chars each
+Global:
+real		user		system	
+83.920000	0.000000	0.000000
+
+####################
+	lib
+####################
+Copied file with 10000 lines, 8192 chars each
+Global:
+real		user		system	
+0.240000	0.000000	0.000000
+
+####################
+	lib
+####################
+Sorted file with 10000 lines, 8192 chars each
+Global:
+real		user		system	
+104.950000	0.000000	0.000000
+
+Analizujac czasy wykonania programu i poszczegolnych procesow,
+szczegolnie sortowania (ktore mialo najwieksza zlozonosz obliczeniawa
+i czasowa), mozna zauwazyc ze dla malych wielkosci rekordow szybszy jest
+algorytm uzywajacy biblioteczne funkcje do dzialania na plikach, natomiast
+im wieksze rozmiary rekordow, tym proporcjonalnie do drugiego rozwiazania,
+szybszy staje sie algorytm korzystajacy z funkcji systemowych.
