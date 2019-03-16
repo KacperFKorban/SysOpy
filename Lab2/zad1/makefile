@@ -24,14 +24,14 @@ test:
 gen_raport:
 	for number in 1 4 512 1024 4096 8192 ; \
 	do \
-		./main generate tmp 1000 $$number >> wyniki.txt; \
-		./main copy tmp tmp1 1000 $$number sys >> wyniki.txt; \
-		./main sort tmp 1000 $$number sys >> wyniki.txt; \
-		./main copy tmp1 tmp 1000 $$number lib >> wyniki.txt; \
-		./main sort tmp 1000 $$number lib >> wyniki.txt; \
-		./main generate tmp 10000 $$number >> wyniki.txt; \
-		./main copy tmp tmp1 10000 $$number sys >> wyniki.txt; \
-		./main sort tmp 10000 $$number sys >> wyniki.txt; \
-		./main copy tmp1 tmp 10000 $$number lib >> wyniki.txt; \
-		./main sort tmp 10000 $$number lib >> wyniki.txt; \
+		time -p ./main generate tmp 1000 $$number >> wyniki.txt 2>&1; \
+		time -p ./main copy tmp tmp1 1000 $$number sys >> wyniki.txt 2>&1; \
+		time -p ./main sort tmp 1000 $$number sys >> wyniki.txt 2>&1; \
+		time -p ./main copy tmp1 tmp 1000 $$number lib >> wyniki.txt 2>&1; \
+		time -p ./main sort tmp 1000 $$number lib >> wyniki.txt 2>&1; \
+		time -p ./main generate tmp 10000 $$number >> wyniki.txt 2>&1; \
+		time -p ./main copy tmp tmp1 10000 $$number sys >> wyniki.txt 2>&1; \
+		time -p ./main sort tmp 10000 $$number sys >> wyniki.txt 2>&1; \
+		time -p ./main copy tmp1 tmp 10000 $$number lib >> wyniki.txt 2>&1; \
+		time -p ./main sort tmp 10000 $$number lib >> wyniki.txt 2>&1; \
 	done

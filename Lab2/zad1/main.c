@@ -8,10 +8,6 @@
 #include <unistd.h>
 #include <string.h>
 
-double calculate_time(clock_t start, clock_t end) {
-    return (double) (end - start) / sysconf(_SC_CLK_TCK);
-}
-
 char* gen_str(int length) {
     char* res = (char*) calloc(length + 1, sizeof(char));
     int i;
@@ -138,12 +134,6 @@ void copy_lib(char* source, char* destination, int size, int length) {
 }
 
 int main(int argc, char* argv[]) {
-    struct tms *gstart = malloc(sizeof(struct tms));
-    struct tms *gend = malloc(sizeof(struct tms));
-    clock_t greal_start;
-    clock_t greal_end;
-
-    greal_start = times(gstart);
 
     int i = 1;
     while(i < argc) {
@@ -200,17 +190,6 @@ int main(int argc, char* argv[]) {
         i++;
     }
 
-    greal_end = times(gend);
-
-    printf("Global:\n");
-    printf("real\t\tuser\t\tsystem\t\n");
-    printf("%lf\t", calculate_time(greal_start, greal_end));
-    printf("%lf\t", calculate_time(gstart->tms_cutime, gend->tms_cutime));
-    printf("%lf\n\n", calculate_time(gstart->tms_cstime, gend->tms_cstime));
-    
-    free(gstart);
-    free(gend);
-    
     /*
         Analizujac czasy wykonania programu i poszczegolnych procesow,
         szczegolnie sortowania (ktore mialo najwieksza zlozonosz obliczeniawa
