@@ -8,4 +8,4 @@ clear:
 	rm -f *.o *.a *.so main
 
 test:
-	./main /home/kacper/SysOpy/Lab2 b a
+	./main . \> 100
