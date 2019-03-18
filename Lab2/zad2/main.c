@@ -35,24 +35,26 @@ char* file_type(int st_mode) {
     return "unknown";
 }
 
-void traverse(char* path, char* comp, time_t mtime) {
-    DIR* root_of_search = opendir(path);
-    char new_path[PATH_MAX + 1];
+void traverse(char* dirpath, char* comp, time_t mtime) {
+    DIR* dir = opendir(dirpath);
 
-    if(root_of_search == NULL) return;
+    if(dir == NULL) return;
 
     struct dirent* de;
+    char new_path[PATH_MAX];
     struct stat st;
-
     char str[36];
 
     char c = comp[0];
-    while((de = readdir(root_of_search)) != NULL) {
+    while((de = readdir(dir)) != NULL) {
         int f = 0;
-        if(strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0)
+        if(strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0) {
             continue;
-        realpath(de->d_name, new_path);
-        lstat(new_path, &st);
+        }
+        strcpy(new_path, dirpath);
+        strcat(new_path, "/");
+        strcat(new_path, de->d_name);
+        if(lstat(new_path, &st) != 0) return;
         switch(c) {
             case '<':
                 if(st.st_mtime < mtime) {
@@ -71,7 +73,7 @@ void traverse(char* path, char* comp, time_t mtime) {
                 break;
         }
 
-        if(st.st_mode & S_IFDIR) {
+        if(S_ISDIR(st.st_mode)) {
             traverse(new_path, comp, mtime);
         }
         if(f == 1) {
@@ -80,7 +82,7 @@ void traverse(char* path, char* comp, time_t mtime) {
         }
     }
 
-    closedir(root_of_search);
+    closedir(dir);
 }
 
 int main(int argc, char* argv[]) {
@@ -93,9 +95,13 @@ int main(int argc, char* argv[]) {
     char* ptr;
     time_t mtime = strtol(date, &ptr, 10);
 
-    // TODO sciezka wzgledna i wyswietlanie bezwzglednej
+    char dirpath[PATH_MAX];
+    realpath(path, dirpath);
 
-    traverse(path, comp, mtime);
+    // TODO parsowanie dat
+    // TODO nftw
+
+    traverse(dirpath, comp, mtime);
 
     return 0;
 }

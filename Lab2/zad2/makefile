@@ -8,4 +8,4 @@ clear:
 	rm -f *.o *.a *.so main
 
 test:
-	./main . \> 100
+	./main /home/kacper/MOwNiT/lab1 \> 100
