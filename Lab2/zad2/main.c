@@ -14,8 +14,12 @@
 #include <pwd.h>
 #include <ftw.h>
 
+char c;
+time_t mtime;
+const char format[] = "%Y-%m-%d %H:%M:%S";
+
 char* formatdate(char* str, time_t val) {
-        strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
+        strftime(str, 36, format, localtime(&val));
         return str;
 }
 
@@ -45,10 +49,10 @@ void traverse(char* dirpath, char* comp, time_t mtime) {
 
     struct dirent* de;
     char new_path[PATH_MAX];
-    struct stat st;
+    struct stat *st = calloc(1, sizeof(struct stat));
     char str[36];
+    char str1[36];
 
-    char c = comp[0];
     while((de = readdir(dir)) != NULL) {
         int f = 0;
         if(strcmp(de->d_name, ".") == 0 || strcmp(de->d_name, "..") == 0) {
@@ -57,35 +61,70 @@ void traverse(char* dirpath, char* comp, time_t mtime) {
         strcpy(new_path, dirpath);
         strcat(new_path, "/");
         strcat(new_path, de->d_name);
-        if(lstat(new_path, &st) != 0) return;
+        if(lstat(new_path, st) != 0) return;
         switch(c) {
             case '<':
-                if(st.st_mtime < mtime) {
+                if(st->st_mtime < mtime) {
                     f = 1;
                 }
                 break;
             case '=':
-                if(st.st_mtime == mtime) {
+                if(st->st_mtime == mtime) {
                     f = 1;
                 }
                 break;
             case '>':
-                if(st.st_mtime > mtime) {
+                if(st->st_mtime > mtime) {
                     f = 1;
                 }
                 break;
         }
 
-        if(S_ISDIR(st.st_mode)) {
-            traverse(new_path, comp, mtime);
-        }
         if(f == 1) {
-            printf("%s %s %ld %s %s\n", new_path, file_type(st.st_mode), st.st_size,
-                formatdate(str, st.st_atime), formatdate(str, st.st_mtime));
+            printf("%s %s %ld %s %s\n", new_path, file_type(st->st_mode), st->st_size,
+                formatdate(str, st->st_atime), formatdate(str1, st->st_mtime));
+        }
+        if(st->st_mode & S_IFDIR) {
+            traverse(new_path, comp, mtime);
         }
     }
 
+    free(st);
+
     closedir(dir);
+}
+
+static int nftw_fun(const char *fpath, const struct stat *st, 
+    int tflag, struct FTW *ftwbuf) {
+
+    char str[36];
+    char str1[36];
+
+    int f = 0;
+    switch(c) {
+        case '<':
+            if(st->st_mtime < mtime) {
+                f = 1;
+            }
+            break;
+        case '=':
+            if(st->st_mtime == mtime) {
+                f = 1;
+            }
+            break;
+        case '>':
+            if(st->st_mtime > mtime) {
+                f = 1;
+            }
+            break;
+    }
+
+    if(f == 1) {
+        printf("%s %s %ld %s %s\n", fpath, file_type(st->st_mode), st->st_size,
+            formatdate(str, st->st_atime), formatdate(str1, st->st_mtime));
+    }
+
+    return 0;
 }
 
 int main(int argc, char* argv[]) {
@@ -95,18 +134,22 @@ int main(int argc, char* argv[]) {
     char* comp = argv[2];
     char* date = argv[3];
 
-    const char format[] = "%Y-%m-%d %H:%M:%S";
+    c = comp[0];
     struct tm *timestamp = calloc(1, sizeof(struct tm));
     strptime(date, format, timestamp);
-    time_t mtime = mktime(timestamp);
+    mtime = mktime(timestamp);
 
     char dirpath[PATH_MAX];
     realpath(path, dirpath);
 
-    // TODO parsowanie dat
+    // TODO linki
     // TODO nftw
 
+    printf("\n\nDIR / STAT\n\n");
     traverse(dirpath, comp, mtime);
+
+    printf("\n\nNFTW\n\n");
+    nftw(dirpath, nftw_fun, 10, FTW_PHYS);
 
     free(timestamp);
 
