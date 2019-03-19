@@ -1,3 +1,4 @@
+#define _XOPEN_SOURCE 500
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -10,6 +11,8 @@
 #include <string.h>
 #include <dirent.h>
 #include <limits.h>
+#include <pwd.h>
+#include <ftw.h>
 
 char* formatdate(char* str, time_t val) {
         strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
@@ -17,19 +20,19 @@ char* formatdate(char* str, time_t val) {
 }
 
 char* file_type(int st_mode) {
-    if(S_ISREG(st_mode)) {
+    if(st_mode & S_IFREG) {
         return "file";
-    } else if(S_ISDIR(st_mode)) {
+    } else if(st_mode & S_IFDIR) {
         return "dir";
-    } else if(S_ISCHR(st_mode)) {
+    } else if(st_mode & S_IFCHR) {
         return "char dev";
-    } else if(S_ISBLK(st_mode)) {
+    } else if(st_mode & S_IFBLK) {
         return "block dev";
-    } else if(S_ISFIFO(st_mode)) {
+    } else if(st_mode & S_IFIFO) {
         return "fifo";
-    } else if(S_ISLNK(st_mode)) {
+    } else if(st_mode & S_IFLNK) {
         return "slink";
-    } else if(S_ISSOCK(st_mode)) {
+    } else if(st_mode && S_IFSOCK) {
         return "sock";
     }
     return "unknown";
@@ -92,8 +95,10 @@ int main(int argc, char* argv[]) {
     char* comp = argv[2];
     char* date = argv[3];
 
-    char* ptr;
-    time_t mtime = strtol(date, &ptr, 10);
+    const char format[] = "%Y-%m-%d %H:%M:%S";
+    struct tm *timestamp = calloc(1, sizeof(struct tm));
+    strptime(date, format, timestamp);
+    time_t mtime = mktime(timestamp);
 
     char dirpath[PATH_MAX];
     realpath(path, dirpath);
@@ -102,6 +107,8 @@ int main(int argc, char* argv[]) {
     // TODO nftw
 
     traverse(dirpath, comp, mtime);
+
+    free(timestamp);
 
     return 0;
 }

@@ -8,4 +8,4 @@ clear:
 	rm -f *.o *.a *.so main
 
 test:
-	./main /home/kacper/MOwNiT/lab1 \> 100
+	./main /home/kacper/SysOpy/Lab2 \> "2019-03-01 19:00:30"
