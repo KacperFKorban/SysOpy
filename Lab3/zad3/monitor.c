@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sys/times.h>
+#include <sys/time.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <sys/resource.h>
 #include <libgen.h> 
 #include <unistd.h>
 #include <string.h>
@@ -25,6 +27,19 @@ void free_wb(wrapped_block *wb) {
         free(wb);
         wb = NULL;
     }
+}
+
+int set_limit(int max_time, int max_memory) {
+    struct rlimit rlim;
+    rlim.rlim_max = (rlim_t) max_time;
+    rlim.rlim_cur = (rlim_t) max_time;
+    if(setrlimit(RLIMIT_CPU, &rlim) != 0) return -1;
+
+    rlim.rlim_max = (rlim_t) max_memory;
+    rlim.rlim_cur = (rlim_t) max_memory;
+    if(setrlimit(RLIMIT_AS, &rlim) != 0) return -1;
+
+    return 0;
 }
 
 int copy_from_wb(wrapped_block *wb, char *file_name) {
@@ -122,10 +137,17 @@ int monitor_with_cp(FILE *fp, char * file_name, int frequency, int wait_seconds)
 }
 
 int main(int argc, char *argv[]) {
-    if(argc != 4) return -1;
+    if(argc != 6) return -1;
 
     int wait_seconds;
     if(sscanf(argv[2], "%d", &wait_seconds) != 1) return -1;
+
+    int max_time;
+    if(sscanf(argv[4], "%d", &max_time) != 1) return -1;
+
+    int max_memory;
+    if(sscanf(argv[5], "%d", &max_memory) != 1) return -1;
+    max_memory *= 1048576;
 
     char *file_name = calloc (128, sizeof(char));
     int frequency;
@@ -140,22 +162,46 @@ int main(int argc, char *argv[]) {
     pid_t pids[128];
     int pids_iter = 0;
 
+    struct rusage r_usage;
+
+    getrusage(RUSAGE_CHILDREN, &r_usage);
+
+
     while(fscanf(fp, "%s %d", file_name, &frequency) == 2) {
         pids[pids_iter] = fork();
         if(is_mem && pids[pids_iter] == 0) {
+            if(set_limit(max_time, max_memory) != 0) {
+                free(file_name);
+                fclose(fp);
+                return -1;
+            }
             monitor_with_mem(fp, file_name, frequency, wait_seconds);
         } else if(pids[pids_iter] == 0) {
+            if(set_limit(max_time, max_memory) != 0) {
+                free(file_name);
+                fclose(fp);
+                return -1;
+            }
             monitor_with_cp(fp, file_name, frequency, wait_seconds);
         }
         pids_iter++;
     }
     sleep(wait_seconds);
 
+    struct timeval ru_utime;
+    struct timeval ru_stime;
+    struct rusage new_r_usage;
     int i;
     for(i = 0; i < pids_iter; i++) {
         int stat_loc;
         waitpid(pids[i], &stat_loc, 0);
+        getrusage(RUSAGE_CHILDREN, &new_r_usage);
+        timersub(&new_r_usage.ru_stime, &r_usage.ru_stime, &ru_stime);
+        timersub(&new_r_usage.ru_utime, &r_usage.ru_utime, &ru_utime);
         printf("Process no. %d created %d copies\n", pids[i], (stat_loc/256));
+        printf("System time usage: %ld.%06ld\n", ru_stime.tv_sec, ru_stime.tv_usec);
+        printf("User time usage: %ld.%06ld\n", ru_utime.tv_sec, ru_utime.tv_usec);
+        r_usage = new_r_usage;
     }
 
     free(file_name);
