@@ -19,13 +19,28 @@ int stopped = 0;
 int killed = 0;
 pid_t *pids;
 int pids_iter;
+FILE *fp_main;
+char *file_name;
+char *input;
 
 void end_process() {
     int i;
     for(i = 0; i < pids_iter; i++) {
         kill(pids[i], SIGTSTP);
     }
-    running = 0;
+    for(i = 0; i < pids_iter; i++) {
+        int stat_loc;
+        waitpid(pids[i], &stat_loc, 0);
+        int numer_of_copies = (stat_loc/256) == 255 ? 0 : (stat_loc/256);
+        printf("Process no. %d created %d copies\n", pids[i], numer_of_copies);
+    }
+
+    free(pids);
+    free(input);
+    free(file_name);
+    fclose(fp_main);
+
+    exit(0);
 }
 
 void obslugaINT(int signum) {
@@ -124,16 +139,15 @@ int monitor_with_mem(char * file_name, int frequency) {
 int main(int argc, char *argv[]) {
     if(argc != 2) return -1;
 
-    char *file_name = calloc (128, sizeof(char));
+    file_name = calloc (128, sizeof(char));
     int frequency;
 
-    FILE *fp;
-    if((fp = fopen(argv[1], "r")) == NULL) return -1;
+    if((fp_main = fopen(argv[1], "r")) == NULL) return -1;
 
     pids = calloc(128, sizeof(pid_t));
     pids_iter = 0;
 
-    while(fscanf(fp, "%s %d", file_name, &frequency) == 2) {
+    while(fscanf(fp_main, "%s %d", file_name, &frequency) == 2) {
         pids[pids_iter] = fork();
         if(pids[pids_iter] == 0) {
             signal(SIGUSR1, obslugaUSR1);
@@ -149,8 +163,8 @@ int main(int argc, char *argv[]) {
 
     signal(SIGINT, obslugaINT);
 
-    char *input = calloc(128, sizeof(char));
-    while(running) {
+    input = calloc(128, sizeof(char));
+    while(1) {
         scanf("%s", input); 
         if(strcmp(input, "LIST") == 0) {
             int i;
@@ -186,19 +200,6 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-
-    int i;
-    for(i = 0; i < pids_iter; i++) {
-        int stat_loc;
-        waitpid(pids[i], &stat_loc, 0);
-        int numer_of_copies = (stat_loc/256) == 255 ? 0 : (stat_loc/256);
-        printf("Process no. %d created %d copies\n", pids[i], numer_of_copies);
-    }
-
-    free(pids);
-    free(input);
-    free(file_name);
-    fclose(fp);
 
     return 0;
 }
