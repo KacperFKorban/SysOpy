@@ -55,7 +55,7 @@ void end_handler_sigqueue(int signum, siginfo_t *info, void *ptr) {
 	int i;
     union sigval value;
     for(i = 0; i < counter; i++){
-        value.sival_int = i;
+        value.sival_int = i+1;
         sigqueue(pid, SIGUSR1, value);
     }
     value.sival_int = counter;

@@ -27,6 +27,7 @@ void counting_handler_sigqueue(int signum, siginfo_t *info, void *ptr) {
     counter++;
     pid = info->si_pid;
     union sigval value;
+    value.sival_int = counter;
     sigqueue(pid, SIGUSR1, value);
 }
 

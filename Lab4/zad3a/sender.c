@@ -46,15 +46,18 @@ void send_end_signal(int mode, int pid) {
 	}
 }
 
-void counting_handler(int signum) {
+void counting_handler(int signum, siginfo_t *info, void *ptr) {
 	counter++;
+	if(info->si_code == SI_QUEUE){
+        printf("Odebrano sygnal nr %d \n",info->si_value.sival_int);
+	}
 }
 
 void set_counting_signal(int mode) {
 	struct sigaction a;
 	sigemptyset(&a.sa_mask);
-	a.sa_flags = 0;
-	a.sa_handler = counting_handler;
+	a.sa_flags = SA_SIGINFO;
+	a.sa_sigaction = &counting_handler;
 	switch(mode) {
 		case 0:
 			sigaction(SIGUSR1, &a, NULL);
