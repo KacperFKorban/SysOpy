@@ -34,13 +34,14 @@ int main(int argc, char *argv[]) {
 
 		char *line = calloc(128, sizeof(char));
 		sprintf(line, "%d ", getpid());
-		char tmp[64];
+		char *tmp = calloc(128, sizeof(char));
 		fread(tmp, sizeof(char), 64, dp);
 		strcat(line, tmp);
 		write(fp, line, 128*sizeof(char));
 
 		pclose(dp);
 
+		free(tmp);
 		free(line);
 
 		int st = rand() % 4 + 2;
