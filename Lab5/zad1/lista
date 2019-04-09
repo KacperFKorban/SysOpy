@@ -1,0 +1,2 @@
+ls / | wc -l | wc -m
+ps -aux | wc -l

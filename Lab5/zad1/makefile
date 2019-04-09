@@ -6,3 +6,5 @@ compile:
 
 clear:
 	rm -f *.o *.a *.so main
+test:
+	./main lista
