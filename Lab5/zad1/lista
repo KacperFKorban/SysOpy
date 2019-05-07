@@ -1,2 +1,3 @@
-ls / | wc -l | wc -m
-ps -aux | wc -l
+ls / | wc -l | wc -m | wc -m | wc -l
+ps -aux | grep zsh
+find /home/kacper -name makefile | wc -l
