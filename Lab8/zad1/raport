@@ -1,0 +1,186 @@
+Mode: interleaved
+Number of threads: 1
+Filter size: 11
+Thread tid: 139865217771264 worked for 0.973126
+Total time: 0.973301
+Mode: interleaved
+Number of threads: 2
+Filter size: 11
+Thread tid: 140602217465600 worked for 0.487978
+Thread tid: 140602209072896 worked for 0.486855
+Total time: 0.488114
+Mode: interleaved
+Number of threads: 4
+Filter size: 11
+Thread tid: 140289902561024 worked for 0.279917
+Thread tid: 140289894168320 worked for 0.281849
+Thread tid: 140289751557888 worked for 0.272593
+Thread tid: 140289885775616 worked for 0.268770
+Total time: 0.282118
+Mode: interleaved
+Number of threads: 8
+Filter size: 11
+Thread tid: 139711100028672 worked for 0.279692
+Thread tid: 139711091635968 worked for 0.209983
+Thread tid: 139711083243264 worked for 0.143536
+Thread tid: 139711074850560 worked for 0.208002
+Thread tid: 139710856951552 worked for 0.231771
+Thread tid: 139710848558848 worked for 0.250453
+Thread tid: 139710840166144 worked for 0.266417
+Thread tid: 139710831773440 worked for 0.257306
+Total time: 0.279875
+Mode: block
+Number of threads: 1
+Filter size: 11
+Thread tid: 139743179785984 worked for 0.961592
+Total time: 0.961782
+Mode: block
+Number of threads: 2
+Filter size: 11
+Thread tid: 140123696289536 worked for 0.492914
+Thread tid: 140123687896832 worked for 0.498341
+Total time: 0.498507
+Mode: block
+Number of threads: 4
+Filter size: 11
+Thread tid: 140031580124928 worked for 0.271362
+Thread tid: 140031571732224 worked for 0.277403
+Thread tid: 140031563339520 worked for 0.281785
+Thread tid: 140031435994880 worked for 0.261856
+Total time: 0.281973
+Mode: block
+Number of threads: 8
+Filter size: 11
+Thread tid: 140129671907072 worked for 0.279302
+Thread tid: 140129663514368 worked for 0.255356
+Thread tid: 140129655121664 worked for 0.230691
+Thread tid: 140129646728960 worked for 0.152502
+Thread tid: 140129638336256 worked for 0.252816
+Thread tid: 140129629943552 worked for 0.267036
+Thread tid: 140129280718592 worked for 0.249008
+Thread tid: 140129272325888 worked for 0.255147
+Total time: 0.293150
+Mode: interleaved
+Number of threads: 1
+Filter size: 31
+Thread tid: 140305557116672 worked for 7.625240
+Total time: 7.625576
+Mode: interleaved
+Number of threads: 2
+Filter size: 31
+Thread tid: 140074907571968 worked for 3.909820
+Thread tid: 140074899179264 worked for 3.884978
+Total time: 3.909945
+Mode: interleaved
+Number of threads: 4
+Filter size: 31
+Thread tid: 139622483547904 worked for 2.196877
+Thread tid: 139622475155200 worked for 2.201485
+Thread tid: 139622466762496 worked for 2.212308
+Thread tid: 139622458369792 worked for 2.201692
+Total time: 2.212443
+Mode: interleaved
+Number of threads: 8
+Filter size: 31
+Thread tid: 140599826585344 worked for 2.196574
+Thread tid: 140599818192640 worked for 2.257145
+Thread tid: 140599713855232 worked for 2.310007
+Thread tid: 140599809799936 worked for 2.154530
+Thread tid: 140599801407232 worked for 2.149240
+Thread tid: 140599793014528 worked for 2.249294
+Thread tid: 140599705462528 worked for 2.314179
+Thread tid: 140599697069824 worked for 2.285241
+Total time: 2.322951
+Mode: block
+Number of threads: 1
+Filter size: 31
+Thread tid: 139958181062400 worked for 7.604050
+Total time: 7.604466
+Mode: block
+Number of threads: 2
+Filter size: 31
+Thread tid: 139730426607360 worked for 3.951449
+Thread tid: 139730418214656 worked for 3.902456
+Total time: 3.951586
+Mode: block
+Number of threads: 4
+Filter size: 31
+Thread tid: 140596649449216 worked for 2.215115
+Thread tid: 140596641056512 worked for 2.197739
+Thread tid: 140596559738624 worked for 2.216427
+Thread tid: 140596551345920 worked for 2.196542
+Total time: 2.216587
+Mode: block
+Number of threads: 8
+Filter size: 31
+Thread tid: 140421507503872 worked for 2.233151
+Thread tid: 140421499111168 worked for 2.118664
+Thread tid: 140421405603584 worked for 2.201655
+Thread tid: 140421490718464 worked for 2.162226
+Thread tid: 140421482325760 worked for 2.212123
+Thread tid: 140421397210880 worked for 2.204335
+Thread tid: 140421388818176 worked for 2.223226
+Thread tid: 140421380425472 worked for 2.193496
+Total time: 2.241036
+Mode: interleaved
+Number of threads: 1
+Filter size: 65
+Thread tid: 140015265519360 worked for 33.269603
+Total time: 33.269831
+Mode: interleaved
+Number of threads: 2
+Filter size: 65
+Thread tid: 140581522507520 worked for 17.467413
+Thread tid: 140581514114816 worked for 17.483410
+Total time: 17.483490
+Mode: interleaved
+Number of threads: 4
+Filter size: 65
+Thread tid: 140313974990592 worked for 9.940132
+Thread tid: 140313966597888 worked for 9.874681
+Thread tid: 140313958205184 worked for 9.876949
+Thread tid: 140313949812480 worked for 9.913103
+Total time: 9.940258
+Mode: interleaved
+Number of threads: 8
+Filter size: 65
+Thread tid: 140305516529408 worked for 9.884018
+Thread tid: 140305508136704 worked for 9.959853
+Thread tid: 140305374377728 worked for 9.946409
+Thread tid: 140305499744000 worked for 9.950061
+Thread tid: 140305491351296 worked for 9.912170
+Thread tid: 140305482958592 worked for 9.947030
+Thread tid: 140305474565888 worked for 9.954916
+Thread tid: 140305466173184 worked for 9.909020
+Total time: 9.969647
+Mode: block
+Number of threads: 1
+Filter size: 65
+Thread tid: 140158637778688 worked for 33.184985
+Total time: 33.185181
+Mode: block
+Number of threads: 2
+Filter size: 65
+Thread tid: 140191983535872 worked for 17.676279
+Thread tid: 140191975143168 worked for 17.396241
+Total time: 17.676447
+Mode: block
+Number of threads: 4
+Filter size: 65
+Thread tid: 139943433598720 worked for 10.028559
+Thread tid: 139943425206016 worked for 10.024165
+Thread tid: 139943282595584 worked for 9.976314
+Thread tid: 139943416813312 worked for 9.892033
+Total time: 10.028717
+Mode: block
+Number of threads: 8
+Filter size: 65
+Thread tid: 140455231461120 worked for 10.032300
+Thread tid: 140455223068416 worked for 9.813454
+Thread tid: 140455094253312 worked for 9.953733
+Thread tid: 140455214675712 worked for 9.722819
+Thread tid: 140455206283008 worked for 9.984492
+Thread tid: 140455197890304 worked for 9.893126
+Thread tid: 140455189497600 worked for 9.979471
+Thread tid: 140455181104896 worked for 9.404715
+Total time: 10.032435
