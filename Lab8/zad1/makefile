@@ -6,7 +6,7 @@ compile:
 
 test:
 	for number in 1 2 4 8 ; do \
-		./main $$number block baboon.ascii.pgm filter65 out.ascii.pgm >> raport; \
+		./main $$number block baboon.ascii.pgm filter31 out.ascii.pgm; \
 	done
 
 clear:
