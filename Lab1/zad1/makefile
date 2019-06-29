@@ -1,7 +1,7 @@
 CC = gcc -Wall -std=c11 -ggdb
 
 
-all: static shared clean
+all: static shared quit
 
 static:
 	$(CC) -c library.c
